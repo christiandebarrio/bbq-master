@@ -6,10 +6,15 @@ class ApiController < ApplicationController
   end
 
   def join
-    if @barbecue.users << current_user
-      render status: 201, json: current_user
+
+    if @barbecue.users.include?(current_user)
+      render status: 404, json: {error: "The user is going"}
     else
-      render status: 404, json: {error: "Not possible to add user"}
+      if @barbecue.users << current_user
+        render status: 201, json: current_user
+      else
+        render status: 404, json: {error: "Not possible to add user"}
+      end    
     end
 
   end
