@@ -2,3 +2,14 @@
 @import "bootstrap";
 
 @import "./barbecues.scss";
+
+.login {
+  background-color: black;
+  color: white;
+  text-align: right;
+}
+
+.login h2 {
+  display: inline-block;
+  margin-right: 10px;
+}
